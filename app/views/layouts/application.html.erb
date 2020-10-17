@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RubyTask</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="header" style="overflow: hidden;background-color: #f1f1f1;padding: 20px 10px;margin-bottom:20px;">
+  <%# <h2> Crypto Market</h1> %>
+  <div style="clear: both">
+    <h2 style="float: left">Crypto Market</h2>
+    <div style="float: right;font-weight:bold;color:Blue"> 
+    <% if !session[:current_user_id].blank? %>
+    <%= link_to 'Log out',:controller => 'user', :action => 'logout' %>
+    <% end %>
+    </div>
+</div>
+</div>
+    <%= yield %>
+  </body>
+</html>
