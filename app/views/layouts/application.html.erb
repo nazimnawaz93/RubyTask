@@ -19,12 +19,17 @@
   <div style="clear: both">
     <h2 style="float: left">Crypto Market</h2>
     <div style="float: right;font-weight:bold;color:Blue"> 
-    <% if !session[:current_user_id].blank? %>
-    <%= link_to 'Log out',:controller => 'user', :action => 'logout' %>
+    <% if !session[:current_user_id].blank? && controller.action_name != "index" %>
+    <%= link_to 'Log out',:controller => 'users', :action => 'logout' %>
     <% end %>
     </div>
 </div>
 </div>
-    <%= yield %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
