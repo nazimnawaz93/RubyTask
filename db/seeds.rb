@@ -13,22 +13,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-
-User.create!([{
-  FullName: "Muhammad Nazim",
-  Email: "staff@gmail.com",
-  Password: "password",
-  Status: "Active",
-  Role: "Staff"
-},
-{
-    FullName: "Peter",
-    Email: "admin@gmail.com",
-    Password: "password",
-    Status: "Active",
-    Role: "Admin"
-}])
-
-p "Staff and Admin Login Created"
-
