@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+              <%= form_tag :action => 'login' do %>
+              <p><label for = "user_email">Email</label>:
+
+              <%= text_field  'users', 'email',:required => true, class: 'form-control' %></p>
+              <p><label for = "user_password">Password</label>:
+
+              <%= password_field 'users', 'password',:required => true, class: 'form-control' %></p>
+
+              <%= submit_tag "Log In", class: " mt-2 btn btn-primary" %>
+              <%= link_to 'New user signup here', {:action => 'signup'},class: "text-primary" %>
+              <% end -%>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+

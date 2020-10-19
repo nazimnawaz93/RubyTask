@@ -1,0 +1,27 @@
+
+<% @page_title = "Signup" %>
+  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+    <div class="card card-signin my-5">
+      <div class="card-body">
+        <h3 class="card-title text-center">Sign Up</h1>
+         <% if @user.errors.any? %>
+          <ul class="Signup_Errors" style="color:red">
+          <% for message_error in @user.errors.full_messages %>
+            <li>* <%= message_error %></li>
+          <% end %>
+          </ul>
+        <% end %>
+        <%= form_for(:user, :url => {:controller => 'users', :action => 'createUser'}) do |f| %>
+          <p> Full Name:</br> <%= f.text_field :name,:required => true, class: 'form-control'%> </p>
+          <p> Email:</br> <%= f.text_field :email,:required => true, class: 'form-control'%> </p>
+          <p>Role:</br><%= f.select(:role, ['Staff', 'Admin'],{}, {:class => 'form-control'})%><p>
+          <p> Password:</br> <%= f.password_field :password,:required => true, class: 'form-control'%></p>
+          <p> Password Confirmation:</br> <%= f.password_field :password_confirmation,:required => true, class: 'form-control'%> </p>
+          <%= f.submit :Signup, class: " mt-2 btn btn-primary" %>
+          <%= link_to 'Already have account login here', {:action => 'index'},class: "text-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+       
+</div>

@@ -1,0 +1,35 @@
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#currencies').DataTable({
+       "pageLength": 50,
+       "lengthChange": false,
+       dom: 'Bfrtip',
+        buttons: ['csv', 'pdf']
+      });
+  });
+</script>
+<div class="container">
+   <% if @currencies.blank? %>
+   <p>There are not any currencies currently in the system.</p>
+   <% else %>
+   <table id="currencies" class="table table-striped table-bordered display" style=" margin-left: auto;margin-right: auto;width:100%">
+      <thead>
+         <th>Market Cap Rank</th>
+         <th>Name</th>
+         <th>Current Price</th>
+      </thead>
+      <tbody>
+         <% @currencies.each do |c| %>
+         <tr>
+            <td><%=  c['market_cap_rank'] -%></td>
+            <td><img src=<%=  c['image'] -%> alt=<%=  c['symbol'] -%> style="margin-left:5px;margin-right:5px;" width="20" height="20">
+            <%=  c['name'] -%>
+            <span style='color:gray;'><%=  c['symbol'].upcase -%></span></td>
+            <td><%=  c['current_price'] -%></td>
+            <% end %>
+         </tr>
+      </tbody>
+   </table>
+   <% end %>
+</div>
